@@ -1,11 +1,11 @@
 # Editor de Texto. Parcial #4. Sistemas Operativos
 
 ## Integrantes
-- [Luisa Maria Polanco Rodriguez]
-- [Vanessa Alexandra Velez Restrepo]
-- [Santiago Arias Higuita]
-- [Luis Miguel Girald]
-- [Miguel Angel Escudero]
+- Luisa Maria Polanco Rodriguez
+- Vanessa Alexandra Velez Restrepo
+- Santiago Arias Higuita
+- Luis Miguel Girald
+- Miguel Angel Escudero
 
 ## Objetivo del reto
 Crear un editor de texto básico que permita encriptar y desencriptar el contenido automáticamente, asegurando que nunca quede en texto plano en el disco
@@ -28,7 +28,7 @@ Este proyecto es básicamente un editor de texto hecho a mano, pero con un toque
 1. **Compilar el código:**
    Se necesita el compliadir de C++ como `g++` y las librerías **Crypto++** y **Ncurses**. El código se compila con el siguiente comando:
    ```bash
-   g++ main.cpp -o editor -lcryptopp -lncurses
+   g++ main.cpp -o main -lcryptopp -lncurses
    ```
 
 2. **Para ejecutar el programa:**
@@ -36,3 +36,5 @@ Este proyecto es básicamente un editor de texto hecho a mano, pero con un toque
    ```bash
    ./main
    ```
+   ![image](https://github.com/user-attachments/assets/8f7d26cf-587e-41b6-b0bb-01383085c64a)
+
