@@ -77,46 +77,88 @@ string cargarDesencriptado(const string& nombreArchivo) {
     }
 }
 
-int main() {   
-    // keypad(stdscr, TRUE);
-	noecho();
-    string nombreArchivo = "archivo_encriptado.txt";
-    string contenido = cargarDesencriptado(nombreArchivo);
+// Función para borrar todos los elementos del archivo
+void limpiarArchivo(const string& nombreArchivo) {
+    ofstream archivo(nombreArchivo, ios::trunc); // Abre en modo truncado
+    archivo.close();
+    cout << "Archivo '" << nombreArchivo << "' limpiado exitosamente.\n";
+}
 
-    // Inicializa la biblioteca Ncurses
-    initscr();
-   
-    printw("Contenido desencriptado del archivo:\n\n%s", contenido.c_str());
-    printw("\n\n--- Escribe el nuevo contenido (presiona Ctrl+D para guardar) ---\n");
+// Función para crear el archivo por si se borra o se inicia por primera vez el programa
+void crearArchivoSiNoExiste(const string& nombreArchivo) {
+    ifstream archivo(nombreArchivo, ios::binary);
 
-    string nuevoContenido;
-    char ch;
-    while ((ch = getch()) != 4) { // Ctrl+D
-        // printw("Tecla presionada: %d\n", ch);
-        if (ch == KEY_BACKSPACE || ch == 127 || ch == 12) { // Detecta tecla de retroceso
-            if (!nuevoContenido.empty()) {
-                // nuevoContenido.pop_back();  // Elimina el último carácter de la cadena
-                // int y, x;
-                // getyx(stdscr, y, x);       // Obtén posición actual del cursor
-                // if (x > 0) {               // Mueve el cursor hacia atrás
-                //     move(y, x - 1);
-                //     addch(' ');            // Borra el carácter en pantalla
-                //     move(y, x - 1);        // Mueve el cursor a la posición borrada
-                // }
-                delch();
-                refresh();
+    if (!archivo.is_open() || archivo.peek() == ifstream::traits_type::eof()) { 
+        cout << "El archivo no existe o está vacío. (presiona Enter en una línea vacía para finalizar) Escribe el contenido inicial:\n";
+        string nuevoContenido, linea;
+        cin.ignore();
+        while (true) {
+            getline(cin, linea);
+            if (linea.empty()) {
+                break;
             }
+            nuevoContenido += linea + "\n";
+        }
+
+        guardarEncriptado(nombreArchivo, nuevoContenido);
+        cout << "Archivo creado y encriptado exitosamente.\n";
+    }
+}
+
+int main() {
+    
+    string nombreArchivo = "archivo_encriptado.txt";
+    crearArchivoSiNoExiste(nombreArchivo);
+
+    while (true) {
+        cout << "\n--- Menú ---\n";
+        cout << "1. Abrir archivo\n";
+        cout << "2. Editar archivo\n";
+        cout << "3. Limpiar archivo\n";
+        cout << "4. Salir\n";
+        cout << "Seleccione una opción: ";
+        
+        int opcion;
+        cin >> opcion;
+        cin.ignore(); //Buffr limpio
+        
+        if (opcion == 1) {
+            string contenido = cargarDesencriptado(nombreArchivo);
+            cout << "Contenido desencriptado:\n" << contenido << endl;
+        } else if (opcion == 2) {
+            // Cargar el contenido existente desencriptado
+            string contenidoActual = cargarDesencriptado(nombreArchivo);
+
+            // Mostrar el contenido existente
+            cout << "Contenido actual (desencriptado):\n";
+            cout << contenidoActual;
+            cout << "--- Escribe el nuevo contenido (presiona Enter en una línea vacía para finalizar) ---\n";
+
+            // Permitir agregar nuevas líneas
+            string nuevoContenido;
+            string linea;
+            while (true) {
+                getline(cin, linea);
+                if (linea.empty()) {
+                    break;
+                }
+                nuevoContenido += linea + "\n";
+            }
+
+            // Al contenido existente pues se le agrega el nuevo
+            contenidoActual += nuevoContenido;
+
+            guardarEncriptado(nombreArchivo, contenidoActual);
+            cout << "Archivo actualizado y encriptado.\n";
+        } else if (opcion == 3) {
+            limpiarArchivo(nombreArchivo);
+            crearArchivoSiNoExiste(nombreArchivo);
+        } else if (opcion == 4) {
+            cout << "Saliendo...\n";
+            break;
         } else {
-            nuevoContenido += ch;         // Agrega el carácter a la cadena
-            // addch(ch);                    // Lo muestra en pantalla
+            cout << "Opción inválida. Intente de nuevo.\n";
         }
     }
-    contenido += "\n" + nuevoContenido;
-
-    endwin();  // Cierra Ncurses
-    
-    // Guarda el contenido completo encriptado
-    guardarEncriptado(nombreArchivo, contenido);
-    cout << "Archivo guardado exitosamente encriptado.\n";
     return 0;
 }
