@@ -4,7 +4,7 @@
 - Luisa Maria Polanco Rodriguez
 - Vanessa Alexandra Velez Restrepo
 - Santiago Arias Higuita
-- Luis Miguel Girald
+- Luis Miguel Giraldo
 - Miguel Angel Escudero
 
 ## Objetivo del reto
