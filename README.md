@@ -38,3 +38,13 @@ Este proyecto es básicamente un editor de texto hecho a mano, pero con un toque
    ```
    ![image](https://github.com/user-attachments/assets/8f7d26cf-587e-41b6-b0bb-01383085c64a)
 
+## Conclusiones
+
+Seguridad mejorada en aplicaciones básicas: Este proyecto demuestra cómo es posible incorporar seguridad avanzada, como la encriptación AES, incluso en herramientas sencillas como un editor de texto. Esto subraya la importancia de proteger la información desde la base.
+
+Integración práctica de bibliotecas: El uso combinado de Crypto++ para la encriptación y Ncurses para la edición de texto en la terminal ejemplifica cómo diferentes tecnologías pueden unirse para resolver problemas específicos.
+
+Facilidad de uso y experiencia del usuario: Aunque se trata de una aplicación básica, la implementación de funcionalidades como la edición en tiempo real y la encriptación transparente destaca cómo la seguridad no tiene por qué comprometer la usabilidad.
+
+## Trabajo Futuro
+- Se plantea la posibilidad de trabajo futuro de implementarlo con otros algoritmos de encriptación de la entrega pasada como RSA y cesar
