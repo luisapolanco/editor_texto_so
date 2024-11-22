@@ -1,4 +1,4 @@
-# Editor de Texto. Parcial #4. Sistemas Operativos
+# Editor de Texto - Parcial #4. Sistemas Operativos
 
 ## Integrantes
 - Luisa Maria Polanco Rodriguez
@@ -8,44 +8,50 @@
 - Miguel Angel Escudero
 
 ## Objetivo del reto
-Crear un editor de texto básico que permita encriptar y desencriptar el contenido automáticamente, asegurando que nunca quede en texto plano en el disco
+Crear un editor de texto básico que permita encriptar y desencriptar el contenido automáticamente, asegurando que nunca quede en texto plano en el disco.
 
-## Librerias Utilizadas
+## Objetivos del Proyecto
+- **Encriptación y Desencriptación**: El archivo debe estar encriptado en el disco y debe desencriptarse automáticamente al abrirse en el editor.
+- **Interfaz de Edición**: Proporcionar una interfaz de edición similar a la del editor de texto `vi`, en la cual el usuario pueda ver y modificar el contenido del archivo. Se recomienda el uso de librerías como Ncurses en C++ para lograr una experiencia interactiva en la terminal.
+- **Guardado Seguro**: Al finalizar la edición, el archivo debe guardarse encriptado nuevamente.
 
-Crypto++ \n
-- Descripción: Crypto++ es una biblioteca de criptografía de código abierto ampliamente utilizada para implementar algoritmos criptográficos en C++, proporciona herramientas para encriptación, desencriptación, generación de claves, firmas digitales y otros servicios de seguridad.
-- Conceptos principales:
- - AES (Advanced Encryption Standard):
-   - AES es un algoritmo de cifrado simétrico estándar desarrollado para proteger datos de manera eficiente.
-   - Opera en bloques de datos de longitud fija (generalmente 128 bits) y utiliza claves de tamaño fijo (128, 192 o 256 bits).
- - CBC_Mode:
-   - En el modo CBC, cada bloque de texto plano se combina con el bloque cifrado anterior (usando XOR) antes de ser procesado.
-   - El IV es esencial para garantizar que el primer bloque tenga una semilla única, incluso si el mismo texto plano se cifra varias veces.
+## Librerías Utilizadas
 
-fstream
-- Descripción: La biblioteca estándar fstream de C++ se utiliza para manejar archivos. Proporciona clases como ifstream (para lectura), ofstream (para escritura) y fstream (para lectura/escritura).
+### 1. **Crypto++**
+- **Descripción**: Crypto++ es una biblioteca de criptografía de código abierto ampliamente utilizada para implementar algoritmos criptográficos en C++. Proporciona herramientas para encriptación, desencriptación, generación de claves, firmas digitales y otros servicios de seguridad.
+- **Conceptos principales**:
+  - **AES (Advanced Encryption Standard)**:
+    - AES es un algoritmo de cifrado simétrico estándar desarrollado para proteger datos de manera eficiente.
+    - Opera en bloques de datos de longitud fija (generalmente 128 bits) y utiliza claves de tamaño fijo (128, 192 o 256 bits).
+  - **CBC_Mode**:
+    - En el modo CBC, cada bloque de texto plano se combina con el bloque cifrado anterior (usando XOR) antes de ser procesado.
+    - El IV (vector de inicialización) es esencial para garantizar que el primer bloque tenga una semilla única, incluso si el mismo texto plano se cifra varias veces.
 
-3. ncurses
-- Descripción: ncurses es una biblioteca de C para la manipulación de la salida en terminal. Permite crear interfaces de usuario basadas en texto con menús, ventanas y otras estructuras interactivas.
-- Conceptos principales:
-  - Pantalla y entradas:
+### 2. **fstream**
+- **Descripción**: La biblioteca estándar `fstream` de C++ se utiliza para manejar archivos. Proporciona clases como `ifstream` (para lectura), `ofstream` (para escritura) y `fstream` (para lectura/escritura).
+
+### 3. **ncurses**
+- **Descripción**: ncurses es una biblioteca de C para la manipulación de la salida en terminal. Permite crear interfaces de usuario basadas en texto con menús, ventanas y otras estructuras interactivas.
+- **Conceptos principales**:
+  - **Pantalla y entradas**:
     - Permite el control de la pantalla del terminal, como manejar el cursor, colorear texto y recibir entradas del usuario.
     - Es útil para aplicaciones que necesitan menús o interfaces dinámicas.
 
-4. string
-- Descripción: Biblioteca estándar de C++ para trabajar con cadenas de texto. Proporciona una interfaz de alto nivel para manipular texto de manera eficiente.
+### 4. **string**
+- **Descripción**: Biblioteca estándar de C++ para trabajar con cadenas de texto. Proporciona una interfaz de alto nivel para manipular texto de manera eficiente.
 
 ## ¿Qué se logró?
 Este proyecto es básicamente un editor de texto hecho a mano, pero con un toque de seguridad 🔒. 
+
 - **El objetivo principal**: guardar los archivos siempre encriptados en disco y desencriptarlos automáticamente al abrirlos.
 - Usamos la librería **Crypto++** para hacer la magia de la encriptación y desencriptación, específicamente el algoritmo **AES** (que es súper seguro, por cierto).
 - También usamos **Ncurses** para que sea un poquito más cómodo trabajar con texto desde la terminal.
   
-- ¿Qué puede hacer este editor? básicamente:
-  - Crear un archivo desde cero si no existe.
-  - Mostrar el contenido desencriptado para que se edite.
-  - Permitir que se escribe y borre texto de manera básica.
-  - Guardar todo lo que se editó, pero siempre encriptado.
+### Funcionalidades del editor:
+- Crear un archivo desde cero si no existe.
+- Mostrar el contenido desencriptado para que se edite.
+- Permitir que se escriba y borre texto de manera básica.
+- Guardar todo lo que se editó, pero siempre encriptado.
 
 
 ## ¿Cómo correr el código?
