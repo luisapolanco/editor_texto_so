@@ -15,11 +15,12 @@ Crear un editor de texto básico que permita encriptar y desencriptar el conteni
 Crypto++ \n
 - Descripción: Crypto++ es una biblioteca de criptografía de código abierto ampliamente utilizada para implementar algoritmos criptográficos en C++, proporciona herramientas para encriptación, desencriptación, generación de claves, firmas digitales y otros servicios de seguridad.
 - Conceptos principales:
- - AES (Advanced Encryption Standard): AES es un algoritmo de cifrado simétrico estándar desarrollado para proteger datos de manera eficiente.
- - Opera en bloques de datos de longitud fija (generalmente 128 bits) y utiliza claves de tamaño fijo (128, 192 o 256 bits).
+ - AES (Advanced Encryption Standard):
+   - AES es un algoritmo de cifrado simétrico estándar desarrollado para proteger datos de manera eficiente.
+   - Opera en bloques de datos de longitud fija (generalmente 128 bits) y utiliza claves de tamaño fijo (128, 192 o 256 bits).
  - CBC_Mode:
    - En el modo CBC, cada bloque de texto plano se combina con el bloque cifrado anterior (usando XOR) antes de ser procesado.
-   -El IV es esencial para garantizar que el primer bloque tenga una semilla única, incluso si el mismo texto plano se cifra varias veces.
+   - El IV es esencial para garantizar que el primer bloque tenga una semilla única, incluso si el mismo texto plano se cifra varias veces.
 
 fstream
 - Descripción: La biblioteca estándar fstream de C++ se utiliza para manejar archivos. Proporciona clases como ifstream (para lectura), ofstream (para escritura) y fstream (para lectura/escritura).
@@ -30,6 +31,7 @@ fstream
   - Pantalla y entradas:
     - Permite el control de la pantalla del terminal, como manejar el cursor, colorear texto y recibir entradas del usuario.
     - Es útil para aplicaciones que necesitan menús o interfaces dinámicas.
+
 4. string
 - Descripción: Biblioteca estándar de C++ para trabajar con cadenas de texto. Proporciona una interfaz de alto nivel para manipular texto de manera eficiente.
 
