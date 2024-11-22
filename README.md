@@ -10,6 +10,38 @@
 ## Objetivo del reto
 Crear un editor de texto básico que permita encriptar y desencriptar el contenido automáticamente, asegurando que nunca quede en texto plano en el disco
 
+## Librerias Utilizadas
+
+1. Crypto++
+Descripción:
+Crypto++ es una biblioteca de criptografía de código abierto ampliamente utilizada para implementar algoritmos criptográficos en C++, proporciona herramientas para encriptación, desencriptación, generación de claves, firmas digitales y otros servicios de seguridad.
+Conceptos principales:
+•	AES (Advanced Encryption Standard):
+o	AES es un algoritmo de cifrado simétrico estándar desarrollado para proteger datos de manera eficiente.
+o	Opera en bloques de datos de longitud fija (generalmente 128 bits) y utiliza claves de tamaño fijo (128, 192 o 256 bits).
+•	CBC_Mode:
+o	En el modo CBC, cada bloque de texto plano se combina con el bloque cifrado anterior (usando XOR) antes de ser procesado.
+o	El IV es esencial para garantizar que el primer bloque tenga una semilla única, incluso si el mismo texto plano se cifra varias veces.
+•	Clases principales:
+o	AES::DEFAULT_KEYLENGTH: Define el tamaño predeterminado de la clave para AES (128 bits en este caso).
+o	StreamTransformationFilter: Aplica transformaciones de flujo, como encriptación o desencriptación, y envía la salida a un StringSink.
+
+2. fstream
+Descripción:
+La biblioteca estándar fstream de C++ se utiliza para manejar archivos. Proporciona clases como ifstream (para lectura), ofstream (para escritura) y fstream (para lectura/escritura).
+
+3. ncurses
+
+Descripción:
+ncurses es una biblioteca de C para la manipulación de la salida en terminal. Permite crear interfaces de usuario basadas en texto con menús, ventanas y otras estructuras interactivas.
+Conceptos principales:
+•	Pantalla y entradas:
+o	Permite el control de la pantalla del terminal, como manejar el cursor, colorear texto y recibir entradas del usuario.
+o	Es útil para aplicaciones que necesitan menús o interfaces dinámicas.
+4. string
+Descripción:
+string es una biblioteca estándar de C++ para trabajar con cadenas de texto. Proporciona una interfaz de alto nivel para manipular texto de manera eficiente.
+
 ## ¿Qué se logró?
 Este proyecto es básicamente un editor de texto hecho a mano, pero con un toque de seguridad 🔒. 
 - **El objetivo principal**: guardar los archivos siempre encriptados en disco y desencriptarlos automáticamente al abrirlos.
