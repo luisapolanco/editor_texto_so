@@ -12,7 +12,7 @@ Crear un editor de texto básico que permita encriptar y desencriptar el conteni
 
 ## Librerias Utilizadas
 
-1. Crypto++
+1. Crypto++ \n
 Descripción:
 Crypto++ es una biblioteca de criptografía de código abierto ampliamente utilizada para implementar algoritmos criptográficos en C++, proporciona herramientas para encriptación, desencriptación, generación de claves, firmas digitales y otros servicios de seguridad.
 Conceptos principales:
@@ -26,12 +26,11 @@ o	El IV es esencial para garantizar que el primer bloque tenga una semilla únic
 o	AES::DEFAULT_KEYLENGTH: Define el tamaño predeterminado de la clave para AES (128 bits en este caso).
 o	StreamTransformationFilter: Aplica transformaciones de flujo, como encriptación o desencriptación, y envía la salida a un StringSink.
 
-2. fstream
+2. fstream \n
 Descripción:
 La biblioteca estándar fstream de C++ se utiliza para manejar archivos. Proporciona clases como ifstream (para lectura), ofstream (para escritura) y fstream (para lectura/escritura).
 
-3. ncurses
-
+3. ncurses \n
 Descripción:
 ncurses es una biblioteca de C para la manipulación de la salida en terminal. Permite crear interfaces de usuario basadas en texto con menús, ventanas y otras estructuras interactivas.
 Conceptos principales:
